@@ -1,26 +1,27 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-html, body {
+html,
+body {
   font-family: var(--font-inter), ui-sans-serif, system-ui;
 }
 
 @utility flex-center {
-    @apply flex justify-center items-center;
+  @apply flex justify-center items-center;
 }
 
 @utility col-center {
-    @apply flex flex-col justify-center items-center;
+  @apply flex flex-col justify-center items-center;
 }
 
 @utility abs-center {
-    @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+  @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
 }
 
 input:-webkit-autofill,
 textarea:-webkit-autofill,
 select:-webkit-autofill {
   -webkit-text-fill-color: #ffffff;
-  box-shadow: 0 0 0 1000px #0E1626 inset;
+  box-shadow: 0 0 0 1000px #0e1626 inset;
   transition: background-color 5000s ease-in-out 0s;
 }
 
@@ -28,12 +29,12 @@ input:-webkit-autofill:focus,
 textarea:-webkit-autofill:focus,
 select:-webkit-autofill:focus {
   -webkit-text-fill-color: #ffffff;
-  box-shadow: 0 0 0 1000px #0E1626 inset;
+  box-shadow: 0 0 0 1000px #0e1626 inset;
 }
 
 select option {
-  background-color: #0B1125;
-  color: #E3E3E3;
+  background-color: #0b1125;
+  color: #e3e3e3;
   text-transform: uppercase;
   letter-spacing: 0.64px;
   font-size: 14px;
@@ -53,4 +54,17 @@ select option:checked {
 
 select option:disabled {
   color: #6b7280;
+}
+
+.fade-in {
+  animation: fade-in 200ms ease-out forwards;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

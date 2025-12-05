@@ -1,9 +1,14 @@
+import { cookies } from 'next/headers';
 import Image from 'next/image';
+import { redirect } from 'next/navigation';
 
 import { ActionCardOverlay } from '@/components/ActionCardOverlay';
 import LoginForm from '@/components/LoginForm';
 
-export default function Login() {
+export default async function Login() {
+  const store = await cookies();
+  const token = store.get('access_token')?.value;
+  if (token) redirect('/dashboard');
   return (
     <main className="min-h-dvh bg-[#0B1125] text-white flex items-center justify-center px-14 py-6">
       <div className="w-full grid grid-cols-1 md:grid-cols-[minmax(0,768px)_1fr] gap-16 md:gap-12 justify-start md:ml-10">

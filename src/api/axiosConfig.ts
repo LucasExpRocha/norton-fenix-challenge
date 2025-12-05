@@ -6,15 +6,21 @@ export const api = axios.create({
     'https://nortus-challenge.api.stage.loomi.com.br',
 });
 
-// api.interceptors.request.use((config) => {
-//   const token = typeof window !== 'undefined' ? localStorage.getItem('access_token') : undefined;
-//   config.headers = config.headers ?? {};
-//   config.headers.Accept = 'application/json';
-//   if (token) {
-//     (config.headers as Record<string, string>).Authorization = `Bearer ${token}`;
-//   }
-//   return config;
-// });
+api.interceptors.request.use(async (config) => {
+  let token: string | undefined = undefined;
+  if (typeof window === 'undefined') {
+    const { cookies } = await import('next/headers');
+    const store = await cookies();
+    token = store.get('access_token')?.value;
+  }
+  config.headers = config.headers ?? {};
+  config.headers.Accept = 'application/json';
+  if (token) {
+    (config.headers as Record<string, string>).Authorization =
+      `Bearer ${token}`;
+  }
+  return config;
+});
 
 export class BaseCrud<T> {
   private endpoint: string;
