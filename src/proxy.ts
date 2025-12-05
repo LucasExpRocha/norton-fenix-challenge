@@ -8,7 +8,7 @@ const publicPaths = [{ path: '/', whenAutenticated: 'redirect' }];
 const REDIRECT_WHEN_NOT_AUTHENTICATED = '/';
 const REDIRECT_WHEN_AUTHENTICATED = '/dashboard';
 
-export function middleware(req: NextRequest) {
+export function proxy(req: NextRequest) {
   const { nextUrl } = req;
   const path = nextUrl.pathname;
   const isAuthenticated = !!req.cookies.get('access_token');
