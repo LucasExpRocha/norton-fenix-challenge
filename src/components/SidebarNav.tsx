@@ -1,7 +1,7 @@
 'use client';
-
 import Image from 'next/image';
-import { useState } from 'react';
+import Link from 'next/link';
+import { redirect, usePathname, useRouter } from 'next/navigation';
 import { twMerge } from 'tailwind-merge';
 
 import Avatar from './ui/Avatar';
@@ -12,6 +12,8 @@ type NavItem = {
   id: string;
   label: string;
   icon: React.ComponentType<{ className?: string }>;
+  href: string;
+  disabled?: boolean;
 };
 
 type SidebarNavProps = {
@@ -30,22 +32,37 @@ const PlanIcon = createIcon('/svgs/plan.svg', 'Plan');
 
 export default function SidebarNav({
   items = [
-    { id: 'dashboard', label: 'Dashboard', icon: DashboardIcon },
-    { id: 'ticket', label: 'Ticket', icon: TicketIcon },
-    { id: 'chat', label: 'Chat', icon: ChatIcon },
-    { id: 'users', label: 'Users', icon: ProfileIcon },
-    { id: 'plan', label: 'Plan', icon: PlanIcon },
+    {
+      id: 'dashboard',
+      label: 'Dashboard',
+      icon: DashboardIcon,
+      href: '/dashboard',
+    },
+    {
+      id: 'ticket',
+      label: 'Ticket',
+      icon: TicketIcon,
+      href: '/ticket-management',
+    },
+    { id: 'chat', label: 'Chat', icon: ChatIcon, href: '/chat-ia' },
+    {
+      id: 'users',
+      label: 'Users',
+      icon: ProfileIcon,
+      href: '/users',
+      disabled: true,
+    },
+    { id: 'plan', label: 'Plan', icon: PlanIcon, href: '/plan-simulator' },
   ],
   defaultActiveId = 'dashboard',
   onSelect,
   initials = 'AC',
   className,
 }: SidebarNavProps) {
-  const [active, setActive] = useState(defaultActiveId);
+  const pathname = usePathname();
 
-  function handleSelect(id: string) {
-    setActive(id);
-    onSelect?.(id);
+  function handleSelect(item: NavItem) {
+    onSelect?.(item.id);
   }
 
   return (
@@ -68,18 +85,21 @@ export default function SidebarNav({
 
         <nav aria-label="Principal">
           <ul className="flex flex-col items-center gap-6">
-            {items.map(({ id, label, icon: Icon }) => {
-              const isActive = id === active;
+            {items.map((item) => {
+              const isActive = item.href === pathname;
 
               return (
-                <li key={id} className="list-none">
-                  <IconButton
-                    onClick={() => handleSelect(id)}
-                    ariaLabel={label}
-                    isActive={isActive}
-                  >
-                    <Icon className="mx-auto text-[22px]" />
-                  </IconButton>
+                <li key={item.id} className="list-none">
+                  <Link href={item.href} passHref prefetch>
+                    <IconButton
+                      onClick={() => handleSelect(item)}
+                      ariaLabel={item.label}
+                      isActive={isActive}
+                      disabled={item.disabled}
+                    >
+                      <item.icon className="mx-auto text-[22px]" />
+                    </IconButton>
+                  </Link>
                 </li>
               );
             })}
