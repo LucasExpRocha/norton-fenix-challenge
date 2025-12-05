@@ -1,11 +1,11 @@
 'use client';
 
-import { useState } from 'react';
 import Image from 'next/image';
+import { Suspense, useState } from 'react';
 
 import Button from '@/components/ui/Button';
 
-export default function ActionCardOverlay() {
+function Container() {
   const [lang, setLang] = useState('pt-br');
   const srcByLang: Record<string, string> = {
     'pt-br': '/svgs/flag-br.svg',
@@ -54,9 +54,24 @@ export default function ActionCardOverlay() {
           className="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 text-white opacity-80 pointer-events-none"
           aria-hidden="true"
         >
-          <path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path
+            d="M4 6l4 4 4-4"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
         </svg>
       </div>
     </div>
+  );
+}
+
+export function ActionCardOverlay() {
+  return (
+    <Suspense fallback={null}>
+      <Container />
+    </Suspense>
   );
 }

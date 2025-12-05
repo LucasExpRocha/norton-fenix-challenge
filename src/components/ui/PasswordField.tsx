@@ -59,7 +59,8 @@ export default function PasswordField({
             aria-invalid={!!error}
             aria-describedby={error ? `${id}-error` : undefined}
             placeholder={placeholder}
-            className="peer w-full bg-transparent font-inter font-normal text-lg leading-[26px] tracking-[0.32px] px-5 py-5 pr-14 rounded-2xl outline-none placeholder-transparent peer-focus:placeholder-slate-400"
+            className="peer w-full bg-transparent font-inter font-normal text-lg leading-7 tracking-[0.32px]
+             px-5 py-2 md:py-5 pr-14 rounded-2xl outline-none placeholder-transparent peer-focus:placeholder-slate-400"
           />
 
           <label

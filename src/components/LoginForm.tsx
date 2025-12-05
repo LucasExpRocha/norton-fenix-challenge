@@ -1,7 +1,7 @@
 'use client';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { LoginFormData, loginSchema } from '@/validation/login';
@@ -31,7 +31,7 @@ export default function LoginForm() {
     mode: 'onChange',
     resolver: zodResolver(loginSchema),
   });
-  const [remember, setRemember] = useState(!!saved);
+  const [remember, setRemember] = useState(Boolean(saved));
 
   function handleRememberChange(val: boolean) {
     setRemember(val);
@@ -61,10 +61,10 @@ export default function LoginForm() {
 
   return (
     <>
-      <h1 className="font-normal text-4xl text-[#E3E3E3] leading-[30.54px] tracking-[0.64px] mb-2.5">
+      <h1 className="font-normal text-3xl md:text-4xl text-[#E3E3E3] leading-7 tracking-[0.64px] mb-2.5">
         Login
       </h1>
-      <p className="text-[#E3E3E3] font-normal text-[20px] leading-[30.54px] tracking-[0.64px] mb-17">
+      <p className="text-[#E3E3E3] font-normal text-sm md:text-xl leading-6 tracking-[0.64px] mb-17">
         Entre com suas credenciais para acessar a sua conta.
       </p>
 
