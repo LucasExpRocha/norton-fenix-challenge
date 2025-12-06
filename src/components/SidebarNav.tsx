@@ -69,7 +69,7 @@ export default function SidebarNav({
     <aside
       aria-label="Barra lateral de navegação"
       className={twMerge(
-        'flex flex-col justify-between items-center min-w-[82px] h-dvh bg-[#152037] pl-10 pr-11 pt-9 pb-20',
+        'flex flex-col justify-between items-center min-w-[82px] h-dvh bg-[#20273E] pl-10 pr-11 pt-9 pb-20 shadow-[4px_0px_20px_0px_#00000033] rounded-br-4xl',
         className
       )}
     >
