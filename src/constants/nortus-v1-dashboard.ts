@@ -1,4 +1,4 @@
-const MOCK_NORTUS_V1_DASHBOARD: Nortus.Dashboard = {
+const MOCK_NORTUS_V1_DASHBOARD: Dashboard = {
   kpisTrend: {
     labels: [
       'Jan',
