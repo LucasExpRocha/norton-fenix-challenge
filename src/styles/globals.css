@@ -17,6 +17,31 @@ body {
   @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
 }
 
+:root {
+  font-size: 16px; /* base */
+}
+
+@media (max-width: 1024px) {
+  /* lg */
+  :root {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* md */
+  :root {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 640px) {
+  /* sm */
+  :root {
+    font-size: 13px;
+  }
+}
+
 input:-webkit-autofill,
 textarea:-webkit-autofill,
 select:-webkit-autofill {
