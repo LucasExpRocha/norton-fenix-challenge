@@ -58,9 +58,11 @@ export default function TextField({
             aria-invalid={!!error}
             aria-describedby={error ? `${id}-error` : undefined}
             placeholder={placeholder}
-            className="peer w-full bg-transparent font-inter font-normal
-            text-lg md:leading-7 tracking-[0.32px] py-2 px-5 md:py-5 rounded-2xl
-            outline-none placeholder-transparent peer-focus:placeholder-slate-400"
+            className={twMerge(
+              'peer w-full bg-transparent font-inter font-normal',
+              'text-lg md:leading-7 tracking-[0.32px] py-2 px-5 md:py-5 rounded-2xl',
+              'outline-none placeholder-transparent peer-focus:placeholder-slate-400'
+            )}
           />
 
           <label

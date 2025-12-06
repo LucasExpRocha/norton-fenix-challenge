@@ -48,28 +48,28 @@ export default function Checkbox({
         name={inputName}
         onChange={handleChange}
         aria-label={ariaLabel ?? label}
-        className="
-          appearance-none
-          w-[22px] h-[22px]
-          rounded-[5px]
-          border border-slate-600
-          bg-[#0E1626]
-          relative
-          transition-colors
-
-          checked:bg-[#c7dd65]
-          checked:border-[#c7dd65]
-
-          after:content-['']
-          checked:after:content-['✓']
-          after:absolute
-          after:inset-0
-          after:flex
-          after:items-center
-          after:justify-center
-          after:text-[#0e1626]
-          after:text-[16px]
-        "
+        className={twMerge(
+          [
+            'appearance-none',
+            'w-[22px] h-[22px]',
+            'rounded-[5px]',
+            'border border-slate-600',
+            'bg-[#0E1626]',
+            'relative',
+            'transition-colors',
+            'checked:bg-[#c7dd65]',
+            'checked:border-[#c7dd65]',
+            "after:content-['']",
+            "checked:after:content-['✓']",
+            'after:absolute',
+            'after:inset-0',
+            'after:flex',
+            'after:items-center',
+            'after:justify-center',
+            'after:text-[#0e1626]',
+            'after:text-[16px]',
+          ].join(' ')
+        )}
       />
       {label}
     </label>
