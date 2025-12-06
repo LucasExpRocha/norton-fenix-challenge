@@ -1,60 +1,65 @@
-declare namespace Nortus {
-  type KpiTrendSeries = {
-    name: string;
-    data: number[];
-  };
+type NortusResponse = {
+  kpisTrend: KpisTrend;
+  kpisResume: KpisResume;
+  segments: SegmentItem[];
+  activeClients: ActiveClientsSection;
+};
 
-  type KpisTrend = {
-    labels: string[];
-    arpuTrend: KpiTrendSeries;
-    conversionTrend: KpiTrendSeries;
-    churnTrend: KpiTrendSeries;
-    retentionTrend: KpiTrendSeries;
-  };
+type KpiTrendSeries = {
+  name: string;
+  data: number[];
+};
 
-  type KpiResumeItem = {
-    valor: number;
-    variacao: number;
-  };
+type KpisTrend = {
+  labels: string[];
+  arpuTrend: KpiTrendSeries;
+  conversionTrend: KpiTrendSeries;
+  churnTrend: KpiTrendSeries;
+  retentionTrend: KpiTrendSeries;
+};
 
-  type KpisResume = {
-    arpu: KpiResumeItem;
-    conversion: KpiResumeItem;
-    retention: KpiResumeItem;
-    churn: KpiResumeItem;
-  };
+type KpiResumeItem = {
+  valor: number;
+  variacao: number;
+};
 
-  type SegmentItem = {
-    nome: string;
-    valor: number;
-  };
+type KpisResume = {
+  arpu: KpiResumeItem;
+  conversion: KpiResumeItem;
+  retention: KpiResumeItem;
+  churn: KpiResumeItem;
+};
 
-  type ActiveClientFilters = {
-    status: string[];
-    secureType: string[];
-    locations: string[];
-  };
+type SegmentItem = {
+  nome: string;
+  valor: number;
+};
 
-  type ActiveClientItem = {
-    id: string;
-    name: string;
-    email: string;
-    secureType: string;
-    monthValue: number;
-    status: string;
-    renewalDate: string;
-    location: string;
-  };
+type ActiveClientFilters = {
+  status: string[];
+  secureType: string[];
+  locations: string[];
+};
 
-  type ActiveClientsSection = {
-    filters: ActiveClientFilters;
-    data: ActiveClientItem[];
-  };
+type ActiveClientItem = {
+  id: string;
+  name: string;
+  email: string;
+  secureType: string;
+  monthValue: number;
+  status: string;
+  renewalDate: string;
+  location: string;
+};
 
-  type Dashboard = {
-    kpisTrend: KpisTrend;
-    kpisResume: KpisResume;
-    segments: SegmentItem[];
-    activeClients: ActiveClientsSection;
-  };
-}
+type ActiveClientsSection = {
+  filters: ActiveClientFilters;
+  data: ActiveClientItem[];
+};
+
+type Dashboard = {
+  kpisTrend: KpisTrend;
+  kpisResume: KpisResume;
+  segments: SegmentItem[];
+  activeClients: ActiveClientsSection;
+};
