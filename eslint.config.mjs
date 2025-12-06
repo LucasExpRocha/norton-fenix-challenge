@@ -57,4 +57,21 @@ export default defineConfig([
       import: eslintPluginImport,
     },
   },
+
+  // Ajustes específicos para TypeScript
+  {
+    files: ['**/*.{ts,tsx}'],
+    rules: {
+      // Desativa a regra base para TS e usa a variante do plugin
+      'no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        {
+          // Ignora parâmetros não utilizados (útil para tipos de função em interfaces)
+          args: 'none',
+          ignoreRestSiblings: true,
+        },
+      ],
+    },
+  },
 ]);
