@@ -9,7 +9,10 @@ export default function PageTransition({
 }) {
   const pathname = usePathname();
   return (
-    <div key={pathname} className="fade-in mx-52 my-14">
+    <div
+      key={pathname}
+      className="fade-in mx-6 xl:mx-20 2xl:mx-52 my-6 xl:my-14"
+    >
       {children}
     </div>
   );

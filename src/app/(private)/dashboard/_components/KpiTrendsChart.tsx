@@ -159,7 +159,7 @@ export default function KpiTrendsChart({ isLoading, kpis }: Props) {
             role="img"
             aria-label="Gráfico de evolução dos KPI's"
           >
-            <ResponsiveContainer width="100%" height="100%" aspect={3.865 / 1}>
+            <ResponsiveContainer width="100%" height="100%" aspect={16 / 6}>
               <AreaChart data={data}>
                 <defs>
                   <linearGradient id="tealGradient" x1="0" y1="0" x2="0" y2="1">
