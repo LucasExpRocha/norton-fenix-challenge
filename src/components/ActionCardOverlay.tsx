@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { Suspense, useState } from 'react';
+import { twMerge } from 'tailwind-merge';
 
 import Button from '@/components/ui/Button';
 
@@ -19,10 +20,10 @@ function Container() {
   };
   return (
     <div
-      className="absolute top-0 right-0 z-10 rounded-bl-2xl
+      className={twMerge(`absolute top-0 right-0 z-10 rounded-bl-2xl
       p-4 flex items-center gap-3 bg-[#0B1125] backdrop-blur-md
-      before:content-[''] before:absolute before:w-6 before:aspect-square before:bg-no-repeat before:[background:radial-gradient(circle_24px_at_left_bottom,_transparent_98%,_#0B1125)_left_bottom] before:top-0 before:-left-6 
-      after:content-[''] after:absolute after:w-6 after:aspect-square after:bg-no-repeat after:[background:radial-gradient(circle_24px_at_left_bottom,_transparent_98%,_#0B1125)_left_bottom] after:right-0 after:-bottom-6"
+      before:content-[''] before:absolute before:w-6 before:aspect-square before:bg-no-repeat before:[background:radial-gradient(circle_24px_at_left_bottom,transparent_98%,#0B1125)_left_bottom] before:top-0 before:-left-6 
+      after:content-[''] after:absolute after:w-6 after:aspect-square after:bg-no-repeat after:[background:radial-gradient(circle_24px_at_left_bottom,transparent_98%,#0B1125)_left_bottom] after:right-0 after:-bottom-6`)}
       aria-label="Ações rápidas"
     >
       <Button fullWidth={false} className="text-sm px-3 py-2 h-[36px]">
